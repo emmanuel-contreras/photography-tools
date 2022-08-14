@@ -8,34 +8,78 @@ import numpy as np
 
 from skimage.measure import regionprops
 from skimage.feature import canny 
+from skimage.morphology import square, erosion, dilation, label, binary_closing
+from skimage.filters import median
+from skimage.segmentation import clear_border
+from skimage.transform import rotate
+
+import tifffile
+
+from scipy.ndimage import binary_fill_holes
 
 from cell_analysis_tools.image_processing import kmeans_threshold
+from cell_analysis_tools.image_processing import normalize
 
 import cv2
 #%%
-path_im = Path(r"D:\Pictures\grid\19941213-084_casa abue toya 1993.tif")
-
-path_im = Path(r"D:\Pictures\19901213-142.tif")
+path_im = Path(r"19871213-152.tif")
+# path_im = Path(r"19871213-156.tif")
 im = tifffile.imread(path_im)
 
-
-# create binary mask
-im_summed = im.sum(axis=2)
-
-# add white padding to 
-pad_size 
-im_sum_padding = np.pad(im_summed,())
-# compute regionprops(major axis)
-# determine angle from horizontal
-# rotate from center to 
-
-# top_hat filter
-
-plt.imshow(canny(im_summed))
+# normalize image, otherwise multiplications will clip at 2^16
+im_norm = normalize(im)
+plt.imshow(im_norm)
 plt.show()
 
-plt.imshow(im_summed)
+# intensity
+im_intensity = im_norm[...,0] * im_norm[...,1] * im_norm[...,2]
+
+im_dia = dilation(im_intensity, square(5))
+plt.imshow(im_dia)
+
+mask = im_dia > np.percentile(im_dia, 80)
+plt.imshow(mask)
+
+mask_inverted = np.invert(mask)
+plt.imshow(mask_inverted)
+
+# clear border
+mask_cb = clear_border(mask_inverted)
+plt.imshow(mask_cb)
+
+# binary closing 
+mask_closed = binary_closing(mask_cb, square(30))
+plt.imshow(mask_closed)
 plt.show()
+
+labels = label(mask_closed)
+
+props = regionprops(labels, im_norm)
+
+
+list_rois = []
+large_area = 10000 # abritrary large number
+for region in props:
+    
+    if region.area > large_area:
+        list_rois.append(region)
+
+# Visualize individual images
+pad = 50
+
+#deskew
+for r in list_rois:
+    row_min, col_min, row_max, col_max = r.bbox
+    im_rgb = im_norm[row_min-pad:row_max+pad, col_min-pad:col_max+pad,:]
+    plt.imshow(rotate(im_rgb, angle=r.orientation, cval=1))
+    plt.show()
+
+
+# save image as tiff again
+
+
+
+
 
 
 
