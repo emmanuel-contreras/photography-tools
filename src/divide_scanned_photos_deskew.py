@@ -16,13 +16,8 @@ from skimage.transform import rotate
 from skimage.filters import try_all_threshold, threshold_local, threshold_otsu
 
 from tqdm import tqdm
-
 import tifffile
-
 from scipy.ndimage import binary_fill_holes
-
-from cell_analysis_tools.image_processing import kmeans_threshold
-from cell_analysis_tools.image_processing import normalize
 
 import cv2
 #%%
