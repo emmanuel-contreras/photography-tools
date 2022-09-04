@@ -30,12 +30,12 @@ This is not yet on pypi so you need to install it manually.
 
 1)  split_multi_scanned_photos()
 
-  * path_im : path to image on hdd.
-  * path_output : path to where you want images to be save to, otherwise an output directory will be created at the root of the files. The default is None.
-  * region_threshold :regions of interest smaller than these size will be ignored . The default is 1e6.
-  * pad : pads the bounding box to prevent accidental cropping of photos edge. The default is 50px.
-  * deskew : Deskew photo on the fly. The default is True.
-  * debug : Show intermedaite images for debugging. The default is False.
+  * **path_im** : path to image on hdd.
+  * **path_output** : path to where you want images to be save to, otherwise an output directory will be created at the root of the files. The default is None.
+  * **region_threshold** :regions of interest smaller than these size will be ignored . The default is 1e6.
+  * **pad** : pads the bounding box to prevent accidental cropping of photos edge. The default is 50px.
+  * **deskew** : Deskew photo on the fly. The default is True.
+  * **debug** : Show intermedaite images for debugging. The default is False.
   
 2)  thumbnail generator
 
