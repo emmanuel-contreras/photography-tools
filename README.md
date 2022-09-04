@@ -1,5 +1,8 @@
 # Photography Tools
-A small python library to do 
+A small collection of functions for various photography tasks. The main one is the `split_multi_scanned_photos` that I needed to crop whole flatbed scans on my Epson V600, their software is crappy and took too long to select and scan each photo so I would scan a grid of 4 photos and split them using this function. Any PR are welcome as well and requests for new functions. 
+
+
+
 <hr>
 
 ### Dependencies
