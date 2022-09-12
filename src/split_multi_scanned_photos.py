@@ -116,7 +116,7 @@ def split_multi_scanned_photos(path_im: Path,
             mask_image = r.image
             
             # determine col indices with values by projecting
-            values_col = mask_image.sum(axis=1)
+            values_col = mask_image.sum(axis=0)
             values_col = np.argwhere(values_col)
             
             # pick 1/4 of points in the middle to avoid outlier at edges
@@ -155,7 +155,8 @@ def split_multi_scanned_photos(path_im: Path,
             # angle_in_degrees = r.orientation * (180/np.pi) + 90 
             im_orig = rotate(im_orig,
                             angle=angle, 
-                            cval=np.min(r.image), # to make white or as close to white
+                            cval=np.max(im_orig), # to make white or as close to white
+                            # cval=2**16-1, # to make white or as close to white
                             preserve_range=True)
             if debug:
                 plt.title("image without rotation")
