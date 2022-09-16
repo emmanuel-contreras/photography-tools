@@ -3,7 +3,8 @@ from tqdm import tqdm
 from split_multi_scanned_photos import split_multi_scanned_photos
 
 
-path_scans = Path(r"D:\Photos\\original_scans\original_scans_batch_1")
+# path_scans = Path(r"D:\Photos\\original_scans\original_scans_batch_1")
+path_scans = Path(r"D:\Photos\\original_scans\original_scans_batch_2")
 
 path_output = path_scans / "output"
 
