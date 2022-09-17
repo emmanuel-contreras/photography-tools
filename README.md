@@ -20,7 +20,9 @@ This is not yet on pypi so you need to install it manually.
 1) Clone the repository to your local hard drive
 2) open up anaconda prompt and change directory to 
 3) ```pip install -e .```
-4) Start using the library scripts!
+4) Start using the library scripts! `from split_multi_scanned_photos import split_multi_scanned_photos1
+5) Optionally you can run the script `split_multi_scanned_photos` by itself. That is what I do to debug scans that aren't cropping  properly  
+
 
 <hr>
 
