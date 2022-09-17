@@ -45,7 +45,7 @@ _Note: Function will take the filename of the original scanned image and append 
   * **region_threshold** :regions of interest smaller than these size will be ignored . The default is 1e6.
   * **pad** : pads the bounding box to prevent accidental cropping of photos edge. The default is 50px.
   * **deskew** : Deskew photo on the fly. The default is True.
-  * **debug** : Show intermedaite images for debugging. The default is False.
+  * **debug** : Show intermedaite images for debugging. This will NOT save images to the hard drive. The default is False.
   
   **Other Notes:**
   * `region_threshold` really depends on the size of your images. This is used to remove small regions in segmentation smaller than the size of an image
