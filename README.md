@@ -29,7 +29,9 @@ I've included a main script that I use for my processing as an example. The smal
 
 ### Notes on my images and settings
 
-I used an Epson V600 in advanced mode set to 800dpi and 48 bit depth. This produced whole flatbed scans of about 350MB per flat bed scan, after cropping images were ~77MB
+I used an Epson V600 in advanced mode set to 800dpi and 48 bit depth. This produced whole flatbed scans of about 350MB per flat bed scan, after cropping images were ~77MB. I've processed about 200GB of photos and ~95% of them are well cropped, the rest may need to be manually cropped. It also may fail if large parts of the image are white and therefore close to the color of the flatbed background.
+
+<hr>
 
 #### Main functions
 
@@ -44,11 +46,11 @@ _Note: Function will take the filename of the original scanned image and append 
   * **debug** : Show intermedaite images for debugging. The default is False.
   
   **Other Notes:**
-  * `region_threshold` really depends on the size of your images. this is used to remove small errors in segmentation smaller than the size of an image
+  * `region_threshold` really depends on the size of your images. This is used to remove small regions in segmentation smaller than the size of an image
   * `pad` adds a buffer area so that you aren't accidentally cropping the original image, this does mean it will leave a small blank margi which I am working on a function to remove.
   * `deskew` uses skimage.transform.rotate function with default settings which is set to fill bg with maximum itensity color of original image (some hue of white), the original range is preserved and interpolation is set to nearest neighbor as is the default for skimage
 
 2)  `thumbnail generator`
- * This function will scale all the photos in a folder by a specified amount. I used this to batch downsaple a lot of photos.
+ * This function will scale all the photos in a folder by a specified amount. I used this to batch downsaple the photos to share with family/friends.
  
 
