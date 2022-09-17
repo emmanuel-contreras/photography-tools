@@ -31,7 +31,7 @@ I've included a main script that I use for my processing as an example. The smal
 
 ### Notes on my images and settings
 
-I used an Epson V600 in advanced mode set to 800dpi and 48 bit depth. This produced whole flatbed scans of about 350MB per flat bed scan, after cropping images were ~77MB. I've processed about 200GB of photos and ~95% of them are well cropped, the rest may need to be manually cropped. It also may fail if large parts of the image are white and therefore close to the color of the flatbed background.
+I used an Epson V600 in advanced mode set to 800dpi and 48 bit depth. This produced whole flatbed scans of about 350MB per flat bed scan, after cropping images were ~77MB. I scanned the images as tiff's for lossless quality. I've processed about 200GB of photos and ~95% of them are well cropped, the rest may need to be manually cropped. It also may fail if large parts of the image are white and therefore close to the color of the flatbed background.
 
 <hr>
 
